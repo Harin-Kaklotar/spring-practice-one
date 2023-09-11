@@ -1,7 +1,9 @@
 package com.harin.springpracticeone.bean;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class HelloWorldConfiguration {
@@ -54,6 +56,30 @@ public class HelloWorldConfiguration {
 	
 	@Bean Student mbaStudent() {
 		return new Student(name(), address());
+	}
+	
+	@Bean
+	@Primary
+	public Person primaryPerson() {
+		return new Person("Demo", 12);
+	}
+	
+	@Bean 
+	@Primary
+	public Address primaryAddress() {
+		return new Address("line1", "city1");
+	}
+	
+	@Bean 
+	@Qualifier("qualifireAddress")
+	public Address qualifireAddress() {
+		return new Address("Dummy line", "Dummy city");
+	}
+	
+	@Bean
+	@Primary
+	public Student primaryStudentByQualifire(String name, @Qualifier("qualifireAddress") Address address) {
+		return new Student(name, address);
 	}
 }
 
