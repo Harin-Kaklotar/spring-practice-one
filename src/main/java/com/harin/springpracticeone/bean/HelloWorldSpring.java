@@ -11,6 +11,13 @@ public class HelloWorldSpring {
 		System.out.println(context.getBean("age"));
 		System.out.println(context.getBean("person"));
 		System.out.println(context.getBean("address"));
+		
+		System.out.println(context.getBean("CustomNameAddress"));
+		System.out.println(context.getBean("personByMethod"));
+		System.out.println(context.getBean("personByParameter"));
+		System.out.println(context.getBean("student"));
+		System.out.println(context.getBean("student2"));
+		//System.out.println(context.getBean(Student.class));
 	}
 
 }

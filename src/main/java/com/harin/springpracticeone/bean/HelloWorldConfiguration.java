@@ -26,7 +26,37 @@ public class HelloWorldConfiguration {
 	public Address address() {
 		return new Address("Andheri", "Mumbai");
 	}
+	
+	@Bean("CustomNameAddress")
+	public Address customAdd() {
+		return new Address("Katargam", "Surat");
+	}
+	
+	@Bean
+	public Person personByMethod() {
+		return new Person(name(), age());
+	}
+	
+	@Bean
+	public Person personByParameter(String name, int age) {
+		return new Person(name, age);
+	}
+	
+	
+	@Bean
+	public Student student(String name, Address address) {
+		return new Student(name, address);
+	}
+	
+	@Bean Student student2() {
+		return new Student("Jhon", new Address("Lixun", "london"));
+	}
+	
+	@Bean Student mbaStudent() {
+		return new Student(name(), address());
+	}
 }
 
 record Person(String name, int age) {};
 record Address(String firstLine, String city) {};
+record Student(String name, Address address) {};
