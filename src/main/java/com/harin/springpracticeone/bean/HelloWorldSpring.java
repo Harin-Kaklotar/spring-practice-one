@@ -1,5 +1,7 @@
 package com.harin.springpracticeone.bean;
 
+import java.util.Arrays;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class HelloWorldSpring {
@@ -21,6 +23,9 @@ public class HelloWorldSpring {
 		System.out.println(context.getBean(Address.class));
 		System.out.println(context.getBean(Student.class));
 		System.out.println(context.getBean("primaryStudentByQualifire"));
+		
+		Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
+		
 	}
 
 }
