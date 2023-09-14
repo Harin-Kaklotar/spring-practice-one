@@ -1,5 +1,8 @@
 package com.harin.springpracticeone.game;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class GameRunner {
 	private GamingConsole game;
 	
